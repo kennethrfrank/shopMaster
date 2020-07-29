@@ -1,0 +1,173 @@
+﻿@model List<WebApplication1.Models.ViewModels.ListVM>
+    
+@{
+    ViewBag.Title = "Home Page";
+
+}
+
+
+
+
+    <div class="ui grid container">
+        <div id="topNav" class="row">
+            <div class="sixteen wide column dFont">
+
+
+
+                <a href="http://www.instagram.com/nclyneofficial/">
+                    <i class="instagram icon white navicons"></i>
+                </a>
+
+                <a href="http://www.linkedin.com/company/nclyne/">
+                    <i class="linkedin icon white navicons"></i>
+                </a>
+
+                <a href="http://www.facebook.com/nclyned">
+                    <i class="facebook icon white navicons"></i>
+                </a>
+
+
+
+              
+                <div id="shopBtn" class="ui button rNav">Shop</div>
+                <div id="cUs" class="ui button cUs rNav">Contact us</div>
+                <div id="email" class="rNav">contactnclyne@gmail.com</div>
+
+
+                <div class="clear"></div>
+
+            </div>
+
+
+        </div>
+
+        <div id="bigLogo" class="row">
+            <div class="sixteen wide column c dFont">
+                <img id="logo" src="~/Images/logoW.png">
+            </div>
+        </div>
+
+        <div id="shopGrid" class="ui stackable grid">
+            <div id="shop" class="row">
+
+                <div id="shopLogoFrame" class="four wide column c">
+                    <img id="shopLogo" src="~/Images/logoW.png">
+                </div>
+
+                <div id="shopBtnFrame" class="twelve wide column c">
+                    <div id="software" class="ui button shopFilter">SOFTWARE</div>
+                    <div id="equipment" class="ui button shopFilter">EQUIPMENT</div>
+                    <div id="merchandise" class="ui button shopFilter activeShop">MERCH</div>
+                </div>
+
+
+            </div>
+            <div id="shopUI" class="row">
+
+                <div id="shopJS" class="ui stackable grid">
+                    @if (Model.Select(m => m.currentProducts).Count() > 0)
+                    {
+
+                        foreach (var item in Model.Select(m => m.currentProducts).FirstOrDefault())
+                        {
+
+
+
+                            var prodName = item.productname;
+                            var prodID = item.productid;
+                            var prodPrice = item.productprice;
+                            var cart = Model.Select(m => m.currentCart).FirstOrDefault();
+                            var cartID = cart.id;
+                            var q = cart.orders.Where(m => m.productid == prodID).Select(m => m.quantity).FirstOrDefault();
+
+                            if (!q.HasValue)
+                            {
+                                q = 0;
+                            }
+
+
+
+                            <div class="four wide column c listParent">
+                                <div class="sixteen wide column listing merchandise">
+                                    <h4 class="invTitle">@prodName</h4>
+                                    <img class="invPic" src="~/Images/mask.jpg">
+
+                                    <h4 class="invPrice">PRICE: $@prodPrice</h4>
+                                    <h4 class="invCat" style="display: none;">Category: Software</h4>
+                                    <a class="review">80 Reviews</a>:
+                                    <div class="ui star rating"></div>
+                                    <div id="@prodID" class="ui positive basic button aTC" data-value="@prodID" data-value-1="@cartID" quantity="@q"> ADD TO CART</div>
+                                    <div class="ui button rTO"> RENT TO OWN</div>
+
+                                </div>
+                            </div>
+
+                        }
+                    }
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div id="bottomNav" class="row">
+
+            <div id="cartRowFrame" class="sixteen wide column right floated dFont">
+                <div id="cartRow" class="ui grid">
+
+                    <div id="cartList" class="eight wide column right floated">
+                        <table id="cartTbl" class="ui table"></table>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="botButRow" class="sixteen wide column dFont">
+
+                <a href="http://www.instagram.com/nclyneofficial/">
+                    <i class="instagram icon white navicons"></i>
+                </a>
+
+                <a href="http://www.linkedin.com/company/nclyne/">
+                    <i class="linkedin icon white navicons"></i>
+                </a>
+
+                <a href="http://www.facebook.com/nclyned">
+                    <i class="facebook icon white navicons"></i>
+                </a>
+
+                <div id="cartBtn" class="ui icon button rNav"><i class="cart icon"></i><div class="floating ui circular red label">1</div> </div>
+                <div id="cUs" class="ui button cUs rNav">Contact us</div>
+            </div>
+
+            <!--<div class="seven wide column right floated r dFont" >
+
+
+        </div>-->
+
+        </div>
+
+        <div id="uConstruction" class="row">
+            <div class="sixteen wide column dFont c">
+                <div class="uConstruction">
+                    UNDER <br> CONSTRUCTION
+                </div>
+            </div>
+        </div>
+
+        <div id="paymentProcess" class="ui modal">
+
+
+
+
+        </div>
+
+       
+
+
+    </div>

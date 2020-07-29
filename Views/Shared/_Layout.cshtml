@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    @RenderBody()
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/custom")
+    @RenderSection("scripts", required: false)
+
+    <script>
+		function atc() {
+			$(".ui.positive.basic.button.aTC").bind('click', function () {
+				var productID = $(this).data('value');
+				var cartID = $(this).data('value-1');
+
+				var q = parseInt($(this).attr('quantity'));
+				var element = this;
+			
+
+
+				$.ajax({
+					type: "POST",
+					url: "@Url.Action("_Cart", "orders")",
+					cache: false,
+					data: {
+						productID: productID,
+						cartID: cartID,
+						quantity: q
+					},
+					dataType: "html",
+					success: function (data) {
+						q = q + 1;
+						console.log("ajax success");
+						$(element).attr('quantity', q);
+						$("#cartTbl").html(data);
+
+					}
+				});
+			});
+		}
+
+		atc();
+
+    </script>
+    <script src="https://js.stripe.com/v3/"></script>
+</body>
+</html>

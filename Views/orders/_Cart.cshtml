@@ -1,0 +1,122 @@
+﻿@model List<WebApplication1.Models.ViewModels.OrderVM>
+
+    <thead class="c">
+        <tr>
+            <th class="four wide">
+                Quantity
+            </th>
+            <th class="four wide">
+                Name
+            </th>
+            <th class="four wide">
+                Image
+            </th>
+            <th class="four wide">
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody id="cartTblB" class="c">
+        @foreach (var item in Model)
+        {
+            <tr >
+                <td><a id="@item.id" class="gold minus" data-value="@item.productid">-  </a> @item.quantity <a class="gold plus">  +</a></td>
+                <td>@item.product.productname</td>
+                <td><img class="invPic" src="~/Images/mask.jpg"></td>
+                <td>$@item.product.productprice</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot class="full-width">
+        <tr>
+            <th colspan="2" style="text-align: left;">
+                <h5>
+                    Total: $@ViewBag.Total
+                </h5>
+            </th>
+            <th colspan="2" style="text-align: center;">
+                <div id="chckOutBtn" class="ui green button" style="width: 85%">
+                    Checkout
+                </div>
+            </th>
+        </tr>
+    </tfoot>
+    <script>
+
+        $('.gold.minus').on("click", function () {
+           
+            var oID = parseInt($(this).attr("id"));
+            var prodID = $(this).data("value");
+            debugger;
+            var pString = "#" + prodID;
+            var qS = $(pString).attr('quantity');
+            var q = parseInt(qS);
+
+            debugger;
+             $.ajax({
+					type: "POST",
+					url: "@Url.Action("minus", "orders")",
+                    cache: false,
+                    data: {
+                        orderid: oID
+                    },
+					dataType: "html",
+                 success: function (data) {
+                             q = q - 1;
+                          $("#cartTbl").html(data);
+                          console.log("ajax success");
+                          $("#" + prodID).attr('quantity', q)
+
+					    }
+				});
+        });
+        $('.gold.plus').on("click", function () {
+            var oID = parseInt($(this).prev().attr("id"));
+            var prodID = $(this).prev().data("value");
+            var pString = "#" + prodID;
+            debugger;
+            var qS = $(pString).attr('quantity');
+            var q = parseInt(qS);
+
+             $.ajax({
+					type: "POST",
+					url: "@Url.Action("plus", "orders")",
+                    cache: false,
+                    data: {
+                        orderid: oID
+                    },
+					dataType: "html",
+                 success: function (data) {
+                     q = q + 1;
+                          $("#cartTbl").html(data);
+                     console.log("ajax success");
+                     $("#" + prodID).attr('quantity', q)
+
+					    }
+				});
+        });
+    $("#chckOutBtn").on("click", function () {
+        var cartid = @Model.Select(m => m.cartid).FirstOrDefault();
+        var total = @ViewBag.Total;
+        console.log("click");
+
+                $.ajax({
+					type: "POST",
+					url: "@Url.Action("_Shipping", "orders")",
+                    cache: false,
+                    data: {
+                        cartid: cartid,
+                        total: total
+                    },
+					dataType: "html",
+                      success: function (data) {
+                        $("#paymentProcess").html(data);
+                        $("#paymentProcess").modal('show');
+						console.log("ajax success");
+
+					    }
+				});
+
+
+    });
+    </script>

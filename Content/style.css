@@ -1,0 +1,370 @@
+
+
+@font-face {
+    font-family: 'multi';
+    src: url("themes/default/assets/fonts/Multicolore.otf") format("opentype");
+}
+
+body{
+	background-color: #000000;
+	color: #fefefe;
+	overflow-y: hidden;
+	
+
+}
+
+
+
+.b{
+	border: 3px solid white;
+}
+
+.bb{
+	border: 2px solid black;
+}
+
+.l{
+	text-align: left;
+}
+
+.c{
+	text-align: center;
+}
+
+.r{
+
+}
+
+.clear{
+	clear: both;
+}
+.ui.button.cUs,#shopBtn,#cartBtn{
+
+	font: 20px bold;
+	font-family: "multi";
+	background-color: black;
+	color: white;
+}
+
+.ui.button.rNav, .rNav{
+	float: right;
+	padding: 20px;
+}
+
+.dFont{
+	font-family: "multi";
+	color: white;
+
+}
+
+#bigLogo{
+	
+}
+
+#shopGrid{
+	display: none;
+}
+#shop{
+	/*height: 160px;*/
+}
+#shopLogo{
+	height: 277px;
+	width: auto;
+}
+
+
+.ui.button.shopFilter{
+	/*position: relative;
+	bottom: 35%;
+	left: 7%;*/
+	
+	margin: 15px;
+	
+	font-family: "multi";
+	font-size: 27px;
+	height: 60px;
+	width: 330px;
+	background-color: black;
+	color: white;
+	border: 2px solid white;
+	border-radius: 0%;
+
+
+
+}
+#paymentProcess{
+	height: 450px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+#nxtBtn,.submitShipping, .submitBill{
+	float: right; 
+	position: relative;
+	right: 40px;
+
+}
+.validation-summary-errors{
+	color: red;
+}
+#shipForm{
+	margin-top: .5%;
+	padding: 30px;
+}
+#billForm {
+	margin-top: .5%;
+	padding: 30px;
+}
+#cardExp{
+	margin-left: 3%;
+}
+#cardCv{
+	margin-right: 3%;
+}
+.ui.button.shopFilter.activeShop{
+	color: black;
+	background-color: white;
+}
+
+.ui.button.shopFilter.activeShop:hover{
+	color: white;
+	background-color: black;
+}
+.ui.button.shopFilter:hover{
+	color: black;
+	background-color: white;
+}
+
+.four.wide.column.c.listParent{
+	display: none;
+}
+
+.listing{
+	background-color: white;
+	color: black;
+	padding: 9px;
+	border-bottom: 3px solid #EAB75C;
+	border-radius: 2%;
+
+}
+.invTitle,.invPrice,.invCat{
+	font-size: 20px;
+	font-family: "multi";
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+img.invPic{
+	height: 120px;
+	width: auto;
+}
+.ui.positive.basic.button.aTC,.ui.button.rTO{
+	width: 99%;
+	height: 60px;
+	
+	color: black;
+	
+	margin-top: 10px;
+	font-size: 17px;
+	font-family: "multi";
+	font-weight: bold;
+}
+
+.ui.button.rTO{
+	background: white;
+	color: black;
+	border: 2px solid black;
+}
+
+#cartList{
+	display: none;
+	height: 330px;
+	overflow: hidden;
+
+}
+#cartTbl.ui.table{
+	height: 300px;
+	display: inline-grid;
+	grid-template-areas: "head-fixed" "body-scrollable";
+}
+#cartTblB{
+	display: inline-block;
+	grid-area: body-scrollable;
+	height: 150px;
+	overflow-y: auto;
+
+}
+#receiptTableB{
+	height: 90px;
+	display: inline-block;
+	grid-area: body-scrollable;
+	overflow-y: auto;
+
+}
+
+#receipt{
+	position: relative;
+	top: -40px;
+
+}
+thead{
+	display: table;
+	grid-area: head-fixed;
+	
+}
+thead tr, tbody tr, tfoot tr{
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+tbody tr td{
+
+}
+
+#cartRowFrame {
+	height: 420px;
+}
+
+#cartList{
+	
+	
+	/*border: 2px solid yellow;
+*/
+}
+
+#bottomNav{
+
+	height: 100px;
+	width: 70%;
+	display: none;
+	position: relative;
+
+	bottom: 439px;
+	z-index: 0;
+
+}
+#botButRow{
+	background-color: black;
+}
+
+.bNavB{
+	margin-top: 20px;
+}
+#email{
+	display: none;
+	font: 11px bold;
+	font-family: "multi";
+	margin-top: 7px;
+}
+.uConstruction{
+	margin-top: 35px;
+	font: 27px bold;
+	font-family: "multi";
+}
+
+i.navicons{
+	font: 33px bold;
+	padding: 15px;
+}
+
+a{
+	color: white;
+
+}
+
+a.review{
+	color: black;
+	text-decoration: underline;
+	font-family: "multi";
+	font-size: 17px;
+}
+
+a:hover{
+	color: #EAB75C;
+}
+.gold {
+	color: #EAB75C;
+}
+
+img#logo{
+	margin-top: 70px;
+	height: auto;
+	width: 500px;
+}
+#shopUI{
+	background-color: black;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+@media all and (max-width: 768px){
+		#shopBtnFrame{
+			position: relative;
+			bottom: 77px;
+		}
+		#software,#equipment,#merchandise{
+			padding-bottom: 50px;
+		}
+		#shop{
+			height: 577px;
+		}
+		#shopUI{
+			height: 300px;
+			
+		}
+
+}
+
+@media all and (min-width: 768px){
+
+	#shopUI{
+		/*border: 2px solid yellow;*/
+		height: 625px;
+		
+	}
+
+	#bottomNav{
+
+	position: relative;
+
+	bottom: 300px;
+
+
+}
+#cartRowFrame{
+	height: 320px;
+}
+
+.ui.button.shopFilter{
+		margin: 0;
+		margin-top: 90px;
+		height: 50px;
+		width: 170px;
+		font-size: 18px;
+		padding: 0;
+		padding-top: 10px;
+
+	}
+
+	#shopBtnFrame{
+		text-align: right;
+	}
+	img#shopLogo{
+
+		position: relative;
+		right: 20%;
+		height: 200px;
+		width: auto;
+	
+	}
+
+}
+
+@media all and (min-width: 991px){
+	.ui.button.shopFilter{
+		margin: 0;
+		margin-top: 90px;
+		height: 50px;
+		width: 170px;
+		font-size: 18px;
+		padding-top: 10px;
+	}
+}
