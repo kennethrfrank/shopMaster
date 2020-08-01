@@ -6,7 +6,8 @@ $(document).ready(function(){
 	//produceListings();
 
 	// $(".ui.modal").modal('show');
-
+	var scrHeight = screen.height;
+	$("body").css("height: " + scrHeight + "px;");
 	$("#cartBtn").on("click", function(){
 		$("#cartList").slideToggle();
 	});

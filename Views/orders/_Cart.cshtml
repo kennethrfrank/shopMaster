@@ -1,50 +1,50 @@
 ﻿@model List<WebApplication1.Models.ViewModels.OrderVM>
 
-    <thead class="c">
+<thead class="c">
+    <tr>
+        <th class="four wide">
+            Quantity
+        </th>
+        <th class="four wide">
+            Name
+        </th>
+        <th class="four wide">
+            Image
+        </th>
+        <th class="four wide">
+            Price
+        </th>
+    </tr>
+</thead>
+<tbody id="cartTblB" class="c">
+    @foreach (var item in Model)
+    {
         <tr>
-            <th class="four wide">
-                Quantity
-            </th>
-            <th class="four wide">
-                Name
-            </th>
-            <th class="four wide">
-                Image
-            </th>
-            <th class="four wide">
-                Price
-            </th>
+            <td><a id="@item.id" class="gold minus" data-value="@item.productid">-  </a> @item.quantity <a class="gold plus">  +</a></td>
+            <td>@item.product.productname</td>
+            <td><img class="invPic cart" src="~/Images/mask.jpg"></td>
+            <td>$@item.product.productprice</td>
         </tr>
-    </thead>
-    <tbody id="cartTblB" class="c">
-        @foreach (var item in Model)
-        {
-            <tr >
-                <td><a id="@item.id" class="gold minus" data-value="@item.productid">-  </a> @item.quantity <a class="gold plus">  +</a></td>
-                <td>@item.product.productname</td>
-                <td><img class="invPic" src="~/Images/mask.jpg"></td>
-                <td>$@item.product.productprice</td>
-            </tr>
-        }
-    </tbody>
-    <tfoot class="full-width">
-        <tr>
-            <th colspan="2" style="text-align: left;">
-                <h5>
-                    Total: $@ViewBag.Total
-                </h5>
-            </th>
-            <th colspan="2" style="text-align: center;">
-                <div id="chckOutBtn" class="ui green button" style="width: 85%">
-                    Checkout
-                </div>
-            </th>
-        </tr>
-    </tfoot>
-    <script>
+    }
+</tbody>
+<tfoot class="full-width" style="border-top: 1px solid grey;">
+    <tr id="cartTblFootRow">
+        <th colspan="2" style="text-align: center;">
+            <h5>
+                Total: $@ViewBag.Total
+            </h5>
+        </th>
+        <th colspan="2" style="text-align: center;">
+            <div id="chckOutBtn" class="ui green button" style="width: 85%">
+                Checkout
+            </div>
+        </th>
+    </tr>
+</tfoot>
+<script>
 
         $('.gold.minus').on("click", function () {
-           
+
             var oID = parseInt($(this).attr("id"));
             var prodID = $(this).data("value");
             debugger;
@@ -119,4 +119,8 @@
 
 
     });
-    </script>
+</script>
+
+<!--SCRIPT NEEDED ON THIS PAGE-->
+<!--Remove Payment Button Classes and Add those to make it loading and inable to pay -->
+<!--Change Checkout Button to Continue button to save modal state  -->
