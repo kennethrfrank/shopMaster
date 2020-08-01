@@ -62,9 +62,9 @@
 
 
             </div>
-            <div id="shopUI" class="row">
+            <div id="shopUI" class="ui stackable grid">
 
-                <div id="shopJS" class="ui stackable grid">
+                <div id="shopJS" class="doubling four column row">
                     @if (Model.Select(m => m.currentProducts).Count() > 0)
                     {
 
@@ -87,7 +87,7 @@
 
 
 
-                            <div class="four wide column c listParent">
+                            <div class="column c listParent">
                                 <div class="sixteen wide column listing merchandise">
                                     <h4 class="invTitle">@prodName</h4>
                                     <img class="invPic" src="~/Images/mask.jpg">
@@ -115,34 +115,38 @@
 
 
 
-        <div id="bottomNav" class="row">
-
-            <div id="cartRowFrame" class="sixteen wide column right floated dFont">
-                <div id="cartRow" class="ui grid">
+        <div id="bottomNav" class="ui grid">
+            
+           
+                <div id="cartRow" class="row">
 
                     <div id="cartList" class="eight wide column right floated">
                         <table id="cartTbl" class="ui table"></table>
                     </div>
 
                 </div>
+          
+            <div id="botButRow" class="row">
+                <div id="botButIcons" class="eight wide column">
+                    <a href="http://www.instagram.com/nclyneofficial/" class="iconBot">
+                        <i class="instagram icon white navicons"></i>
+                    </a>
+
+                    <a href="http://www.linkedin.com/company/nclyne/" class="iconBot">
+                        <i class="linkedin icon white navicons"></i>
+                    </a>
+
+                    <a href="http://www.facebook.com/nclyned" class="iconBot">
+                        <i class="facebook icon white navicons"></i>
+                    </a>
+                </div>
+            <div id="botButFuncts" class="eight wide column dFont">
+
+            
+
+                <div id="cartBtn" class="ui icon button rNav"><i class="cart icon"></i><div class="floating ui circular red label notification">1</div> </div>
+                <div id="cUsB" class="ui button cUs rNav">Contact us</div>
             </div>
-
-            <div id="botButRow" class="sixteen wide column dFont">
-
-                <a href="http://www.instagram.com/nclyneofficial/">
-                    <i class="instagram icon white navicons"></i>
-                </a>
-
-                <a href="http://www.linkedin.com/company/nclyne/">
-                    <i class="linkedin icon white navicons"></i>
-                </a>
-
-                <a href="http://www.facebook.com/nclyned">
-                    <i class="facebook icon white navicons"></i>
-                </a>
-
-                <div id="cartBtn" class="ui icon button rNav"><i class="cart icon"></i><div class="floating ui circular red label">1</div> </div>
-                <div id="cUs" class="ui button cUs rNav">Contact us</div>
             </div>
 
             <!--<div class="seven wide column right floated r dFont" >

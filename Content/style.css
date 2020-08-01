@@ -9,11 +9,12 @@ body{
 	background-color: #000000;
 	color: #fefefe;
 	overflow-y: hidden;
-	
 
 }
 
-
+.ui.positive.basic.button.aTC, .ui.button.rTO {
+	
+}
 
 .b{
 	border: 3px solid white;
@@ -40,12 +41,19 @@ body{
 }
 .ui.button.cUs,#shopBtn,#cartBtn{
 
-	font: 20px bold;
+	font: 14px bold;
 	font-family: "multi";
 	background-color: black;
 	color: white;
 }
 
+#cUs,#shopBtn{
+	padding: 0px;
+	margin-top: 27px;
+}
+#cUs{
+	padding-right: 15px;
+}
 .ui.button.rNav, .rNav{
 	float: right;
 	padding: 20px;
@@ -93,11 +101,13 @@ body{
 
 }
 #paymentProcess{
-	height: 450px;
-    overflow-y: hidden;
+	height: 500px;
+	padding-top: 5px;
+	padding-bottom: 27px;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
-#nxtBtn,.submitShipping, .submitBill{
+#nxtBtn{
 	float: right; 
 	position: relative;
 	right: 40px;
@@ -147,7 +157,7 @@ body{
 
 }
 .invTitle,.invPrice,.invCat{
-	font-size: 20px;
+	font-size: 15px;
 	font-family: "multi";
 	margin-top: 2px;
 	margin-bottom: 2px;
@@ -157,14 +167,16 @@ img.invPic{
 	height: 120px;
 	width: auto;
 }
-.ui.positive.basic.button.aTC,.ui.button.rTO{
+img.invPic.cart{
+	height: 50px;
+	width: auto;
+}
+.ui.positive.basic.button.aTC, .ui.button.rTO {
 	width: 99%;
-	height: 60px;
-	
+	font-size: 11px;
+	height: 30px;
 	color: black;
-	
 	margin-top: 10px;
-	font-size: 17px;
 	font-family: "multi";
 	font-weight: bold;
 }
@@ -175,23 +187,44 @@ img.invPic{
 	border: 2px solid black;
 }
 
-#cartList{
+/*#cartList{
 	display: none;
 	height: 330px;
 	overflow: hidden;
 
-}
-#cartTbl.ui.table{
-	height: 300px;
-	display: inline-grid;
-	grid-template-areas: "head-fixed" "body-scrollable";
-}
-#cartTblB{
-	display: inline-block;
-	grid-area: body-scrollable;
-	height: 150px;
-	overflow-y: auto;
+}*/
 
+#cartList {
+	display: none;
+	overflow-y: visible;
+	overflow-x: visible;
+	position: relative;
+	top: -445px;
+	height: 433px;
+}
+
+
+#cartRow{
+	height:100%;
+	overflow-x: visible;
+}
+#cartTbl.ui.table {
+	height: 100%;
+	display: inline-grid;
+	grid-template-areas: "head-fixed" "body-scrollable" "foot-fixed";
+	overflow-x: visible;
+	position: relative;
+	right: -15px;
+	bottom: 20px;
+	width: 100%;
+}
+#cartTblB {
+	display: block;
+	grid-area: body-scrollable;
+	height: 100%;
+	overflow-y: auto;
+	position: relative;
+	top: 0px;
 }
 #receiptTableB{
 	height: 90px;
@@ -209,41 +242,51 @@ img.invPic{
 thead{
 	display: table;
 	grid-area: head-fixed;
+	height: 100%;
 	
 }
-thead tr, tbody tr, tfoot tr{
+tfoot{
+	height: 100%;
+	display: table;
+	grid-area: foot-fixed;
+}
+thead tr, tfoot tr{
 	display: table;
 	table-layout: fixed;
 	width: 100%;
+	height: 100%;
 }
-tbody tr td{
-
+tbody tr{
+	display: table;
+	table-layout: fixed;
+	height: 90%;
+	width: 100%;
+}
+tbody tr td {
 }
 
 #cartRowFrame {
-	height: 420px;
-}
-
-#cartList{
-	
-	
-	/*border: 2px solid yellow;
-*/
+	height: 20px;
 }
 
 #bottomNav{
-
-	height: 100px;
-	width: 70%;
+	width: 100%;
 	display: none;
 	position: relative;
 
-	bottom: 439px;
+	top: 0px;
 	z-index: 0;
 
 }
 #botButRow{
 	background-color: black;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+}
+a.iconBot{
+	position: relative;
+	top: 0px;
 }
 
 .bNavB{
@@ -284,6 +327,10 @@ a:hover{
 .gold {
 	color: #EAB75C;
 }
+.floating.ui.circular.red.label.notification{
+	position: relative;
+	right: 20px;
+}
 
 img#logo{
 	margin-top: 70px;
@@ -295,7 +342,36 @@ img#logo{
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
-@media all and (max-width: 768px){
+#shopJS{
+	overflow-y:scroll;
+}
+#cUsB{
+	padding-right: 0px;
+}
+.submitShipping {
+	position: absolute;
+	right: 23px;
+}
+.submitBill {
+	position: absolute;
+	bottom: 37px;
+	right: 27px;
+}
+
+@media all and (max-width: 767px){
+
+		
+	
+
+		#receiptTbl{
+			width: 80%;
+			margin-top: 30px;
+			margin-left: 27px;
+		}
+		#cartTblB{
+			height: 100%;
+			max-height: 190px;
+		}
 		#shopBtnFrame{
 			position: relative;
 			bottom: 77px;
@@ -303,17 +379,42 @@ img#logo{
 		#software,#equipment,#merchandise{
 			padding-bottom: 50px;
 		}
+		#software,#equipment{
+			display: none;
+		}
 		#shop{
-			height: 577px;
+			height: 377px;
 		}
 		#shopUI{
-			height: 300px;
+			height: 500px;
+			
 			
 		}
+	img#logo {
+		margin-top: 70px;
+		height: auto;
+		width: 500px;
+	}
 
 }
 
-@media all and (min-width: 768px){
+@media all and (min-width: 767px){
+	tbody tr {
+		
+		height: 60%;
+
+	}
+	#cartList {
+		top: -300px;
+		height: 300px;
+	}
+
+
+	img#logo {
+		margin-top: 70px;
+		height: auto;
+		width: 500px;
+	}
 
 	#shopUI{
 		/*border: 2px solid yellow;*/
@@ -347,18 +448,38 @@ img#logo{
 	#shopBtnFrame{
 		text-align: right;
 	}
-	img#shopLogo{
-
+	img#shopLogo {
 		position: relative;
+		top: 30px;
 		right: 20%;
-		height: 200px;
-		width: auto;
-	
+		width: 200px;
+		height: auto;
 	}
+	h4.invTitle{
+		font-size: 17px;
 
+	}
+	.ui.positive.basic.button.aTC,.ui.button.rTO{
+		font-size: 12px;
+		height: 30px;
+	}
+	#botButRow {
+		background-color: black;
+		position: fixed;
+		bottom: 0px;
+		left: 0px;
+	}
 }
 
 @media all and (min-width: 991px){
+	#botButIcons{
+		position:relative;
+		left: 10%;
+	}
+	#botButFuncts {
+		position: relative;
+		right: 10%;
+	}
 	.ui.button.shopFilter{
 		margin: 0;
 		margin-top: 90px;
