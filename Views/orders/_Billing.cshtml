@@ -78,7 +78,7 @@
                 <div id="orderSum" class="ui stackable centered grid">
                     <div class="row">
                         <div class="fifteen wide column">
-                            <table id="receiptTbl" class="ui table">
+                            <table class="ui table">
                                 <thead class="c">
                                     <tr>
                                         <th class="four wide bb">
@@ -105,7 +105,7 @@
                                 </tbody>
                                 <tfoot class="full-width">
                                     <tr>
-                                        <th colspan="1" style="text-align: center;">
+                                        <th colspan="1" style="text-align: right;">
                                             <h5>
                                                 Subtotal: $@ViewBag.Total
                                             </h5>
@@ -125,7 +125,7 @@
                             </table>
                         </div>
                     </div>
-                    <div id="orderComments" class="row" style="display: none;">
+                    <div class="row" style="display: none;">
                         <div class="fifteen wide column">
                             <div class="ui form">
                                 <div class="field">
@@ -564,8 +564,7 @@
                 },
 			dataType: "html",
 			success: function (data) {
-                console.log("great");
-                
+				console.log("great");
 				$("#receipt").html(data);
 
 			},
