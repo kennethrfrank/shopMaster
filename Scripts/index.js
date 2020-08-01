@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 	// $(".ui.modal").modal('show');
 	var scrHeight = screen.height;
-	$("body").css("height: " + scrHeight + "px;");
+	$("body").css("height", ""+scrHeight + "px");
 	$("#cartBtn").on("click", function(){
 		$("#cartList").slideToggle();
 	});
